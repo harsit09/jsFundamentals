@@ -1,0 +1,9 @@
+question 
+
+write a query for mongoDB 
+where you have to find details 
+of the employee whose name 
+starts with D. take suitable 
+assumptions to suit the answer 
+...............................
+Ans - db.employees.find({ name: /^D/ })
