@@ -1,0 +1,176 @@
+1. Control Flow (if, switch, loops)
+
+Control flow determines how statements execute in a program.
+
+Example 1: if-else Statement
+
+let age = 18;
+
+if (age >= 18) {
+    console.log("You are eligible to vote.");
+} else {
+    console.log("You are not eligible to vote.");
+}
+
+	•	If age is 18 or more, it prints “You are eligible to vote.”
+	•	Otherwise, it prints “You are not eligible to vote.”
+
+Example 2: switch Statement
+
+let day = "Monday";
+
+switch (day) {
+    case "Monday":
+        console.log("Start of the work week.");
+        break;
+    case "Friday":
+        console.log("Weekend is near!");
+        break;
+    default:
+        console.log("Just another day.");
+}
+
+	•	Matches day with cases and executes the corresponding block.
+
+Example 3: for Loop
+
+for (let i = 1; i <= 5; i++) {
+    console.log("Iteration:", i);
+}
+
+	•	Runs from 1 to 5, printing the iteration count.
+
+Example 4: while Loop
+
+let count = 1;
+
+while (count <= 3) {
+    console.log("Count is:", count);
+    count++;
+}
+
+	•	Executes while the condition is true.
+
+2. Functions & Scope
+
+Functions allow us to group reusable logic. Scope determines where variables are accessible.
+
+Example: Function with Local Scope
+
+function greet() {
+    let message = "Hello, World!";
+    console.log(message);
+}
+
+greet(); // Works
+console.log(message); // Error: message is not defined (local scope)
+
+	•	message is accessible only inside the function.
+
+Example: Global Scope
+
+let globalVar = "I'm global";
+
+function showGlobal() {
+    console.log(globalVar);
+}
+
+showGlobal(); // Works
+console.log(globalVar); // Works
+
+	•	globalVar is accessible everywhere in the script.
+
+3. Function Expressions vs Declarations
+
+Function Declaration
+
+function add(a, b) {
+    return a + b;
+}
+
+console.log(add(2, 3)); // 5
+
+	•	Can be called before it’s defined due to hoisting.
+
+Function Expression
+
+const multiply = function(a, b) {
+    return a * b;
+};
+
+console.log(multiply(3, 4)); // 12
+
+	•	Cannot be called before declaration.
+
+4. Arrow Functions & this Keyword
+
+Arrow Function Syntax
+
+const square = (num) => num * num;
+
+console.log(square(4)); // 16
+
+	•	Shorter syntax compared to function expressions.
+
+Difference in this Handling
+
+Regular Function (Own this)
+
+const person = {
+    name: "Alice",
+    greet: function() {
+        console.log("Hello, " + this.name);
+    }
+};
+
+person.greet(); // Hello, Alice
+
+	•	this refers to the person object.
+
+Arrow Function (this from Outer Scope)
+
+const personArrow = {
+    name: "Bob",
+    greet: () => {
+        console.log("Hello, " + this.name);
+    }
+};
+
+personArrow.greet(); // Hello, undefined (Arrow function doesn't have its own `this`)
+
+	•	Arrow functions don’t bind this. They use this from the surrounding scope.
+
+5. Closures & Higher-Order Functions
+
+Closures (Functions inside Functions)
+
+function outer() {
+    let counter = 0;
+
+    return function inner() {
+        counter++;
+        console.log(counter);
+    };
+}
+
+const countFunc = outer();
+countFunc(); // 1
+countFunc(); // 2
+
+	•	The inner function remembers counter even after outer has finished.
+
+Higher-Order Functions (Functions that take functions as arguments)
+
+function operateOnNumbers(a, b, operation) {
+    return operation(a, b);
+}
+
+const sum = (x, y) => x + y;
+const product = (x, y) => x * y;
+
+console.log(operateOnNumbers(3, 4, sum)); // 7
+console.log(operateOnNumbers(3, 4, product)); // 12
+
+	•	operateOnNumbers takes a function (sum or product) as an argument.
+
+more real-world examples- 
